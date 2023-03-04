@@ -9,7 +9,7 @@ namespace DotNetCoreWebApiShim
     /// </summary>
     public abstract class CompatibleControllerBase : ControllerBase
     {
-        private HttpRequestMessage? _cachedRequestMessage;
+        private HttpRequestMessage? cachedRequestMessage;
 
         /// <summary>
         /// <see cref="HttpRequestMessage"/>
@@ -18,9 +18,9 @@ namespace DotNetCoreWebApiShim
         {
             get
             {
-                if (_cachedRequestMessage != null)
+                if (cachedRequestMessage != null)
                 {
-                    return _cachedRequestMessage;
+                    return cachedRequestMessage;
                 }
 
                 // NOTE 同期処理による例外が発生するためオプションを変更
@@ -30,10 +30,10 @@ namespace DotNetCoreWebApiShim
                     controlFeature.AllowSynchronousIO = true;
                 }
 
-                _cachedRequestMessage = new HttpRequestMessageFeature(Request.HttpContext)
+                cachedRequestMessage = new HttpRequestMessageFeature(Request.HttpContext)
                     .HttpRequestMessage;
 
-                return _cachedRequestMessage;
+                return cachedRequestMessage;
             }
         }
     }

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoreWebApiShim", "DotNetCoreWebApiShim\DotNetCoreWebApiShim.csproj", "{CA1DF691-878D-4BA3-8496-F69B0C4DA28E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreWebApiShim", "DotNetCoreWebApiShim\DotNetCoreWebApiShim.csproj", "{CA1DF691-878D-4BA3-8496-F69B0C4DA28E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoreWebApiShim.Test", "DotNetCoreWebApiShim.Test\DotNetCoreWebApiShim.Test.csproj", "{935C2C82-101A-4CB8-8C40-CC3374434019}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CA1DF691-878D-4BA3-8496-F69B0C4DA28E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA1DF691-878D-4BA3-8496-F69B0C4DA28E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA1DF691-878D-4BA3-8496-F69B0C4DA28E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{935C2C82-101A-4CB8-8C40-CC3374434019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935C2C82-101A-4CB8-8C40-CC3374434019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935C2C82-101A-4CB8-8C40-CC3374434019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935C2C82-101A-4CB8-8C40-CC3374434019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
