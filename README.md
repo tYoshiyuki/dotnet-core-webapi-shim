@@ -15,13 +15,12 @@ builder.Services.AddControllers()
     .AddWebApiConventions();
 ```
 
-- `HttpResponseMessage` の生成は、ヘルパーメソッドを利用します。
+- `HttpResponseMessage` は、`CompatibleControllerBase` の `RequestMessage` を利用します。
+
 ```cs
-public static HttpResponseMessage CreateResponse<T>(this HttpRequest request, HttpStatusCode statusCode, T value)
+[HttpGet("GetWeatherForecastLegacy")]
+public HttpResponseMessage GetLegacy()
 {
-    SetAllowSynchronous(request);
-    return new HttpRequestMessageFeature(request.HttpContext)
-        .HttpRequestMessage
-        .CreateResponse(statusCode, value);
+    return RequestMessage.CreateResponse(HttpStatusCode.OK, GetWeatherForecast());
 }
 ```

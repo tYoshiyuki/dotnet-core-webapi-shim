@@ -6,9 +6,9 @@ namespace DotNetCoreWebApiShim.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : CompatibleControllerBase
     {
-        private static readonly string[] Summaries = { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+        private static readonly string[] s_summaries = { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -36,7 +36,7 @@ namespace DotNetCoreWebApiShim.Controllers
         [HttpGet("GetWeatherForecastLegacy")]
         public HttpResponseMessage GetLegacy()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, GetWeatherForecast());
+            return RequestMessage.CreateResponse(HttpStatusCode.OK, GetWeatherForecast());
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace DotNetCoreWebApiShim.Controllers
         [HttpGet("ErrorLegacy")]
         public HttpResponseMessage ErrorLegacy()
         {
-            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, new HttpError("This is ErrorLegacy Sample."));
+            return RequestMessage.CreateErrorResponse(HttpStatusCode.BadRequest, new HttpError("This is ErrorLegacy Sample."));
         }
 
         private IEnumerable<WeatherForecast> GetWeatherForecast() => Enumerable.Range(1, 5)
@@ -66,7 +66,7 @@ namespace DotNetCoreWebApiShim.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                Summary = s_summaries[Random.Shared.Next(s_summaries.Length)]
             })
             .ToArray();
     }
